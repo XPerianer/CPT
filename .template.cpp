@@ -30,18 +30,18 @@ template <typename T>void fastscan(T &number)
     number = 0; 
     // extract current character from buffer 
     do {
-        c = getchar();
+        c = getchar_unlocked();
     } while((c < '0' || c > '9')&& c != '-');
     if (c=='-') 
     { 
         // number is negative 
         negative = true; 
         // extract the next character from the buffer 
-        c = getchar(); 
+        c = getchar_unlocked(); 
     } 
     // Keep on extracting characters if they are integers 
     // i.e ASCII Value lies from '0'(48) to '9' (57) 
-    for (; (c>47 && c<58); c=getchar()) 
+    for (; (c>47 && c<58); c=getchar_unlocked()) 
         number = number *10 + c - 48; 
     // if scanned input has a negative sign, negate the 
     // value of the input number 
